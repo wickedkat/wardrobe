@@ -29,9 +29,12 @@ public class Wardrobe {
     }
 
     public void hangHanger(Hanger hanger){
+        if(hangedHangers < hangerCapacity){
         hangersInWardrobe.add(hanger);
+        hangedHangers+=1;
 
-    }
+
+    }}
 
     public void getOutHanger(Hanger hanger){
         hangersInWardrobe.remove(hanger);
@@ -41,4 +44,5 @@ public class Wardrobe {
     public List<Hanger> getHangersInWardrobe() {
         return hangersInWardrobe;
     }
+
 }
