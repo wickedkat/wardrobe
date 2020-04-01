@@ -32,17 +32,43 @@ public class Wardrobe {
         if(hangedHangers < hangerCapacity){
         hangersInWardrobe.add(hanger);
         hangedHangers+=1;
-
-
-    }}
+    }
+    else{
+            System.out.println("Not enough space in wardrobe");}
+    }
 
     public void getOutHanger(Hanger hanger){
+        if(isHangerInWardrobe(hanger)){
         hangersInWardrobe.remove(hanger);
         hangedHangers -=1;
-    }
+    }}
 
     public List<Hanger> getHangersInWardrobe() {
         return hangersInWardrobe;
+    }
+
+    public PieceOfClothing getClothesfromWardrobe(Hanger hanger){
+        if(hanger instanceof HangerWithBar){
+            /*tu bym napisała piekna komunikacje z userem z pytaniem co chce zdjac z wieszaka, jesli wisza 2 ubrania
+            * póki co zwracam tylko drugi typ ciuchów */
+            return ((HangerWithBar) hanger).getClothing2();
+        }
+        System.out.println(hanger.getClothing1().getType());
+        return hanger.getClothing1();
+
+
+
+
+    }
+
+    public boolean isHangerInWardrobe(Hanger hanger){
+        if(hangersInWardrobe.contains(hanger)){
+            return  true;
+        }
+        else{
+            return false;
+        }
+
     }
 
 }
